@@ -1,0 +1,19 @@
+{
+    "author": "Travis Kaufman <travis.kaufman@gmail.com>",
+    "name": "node-lipsum",
+    "version": "1.0.0dev",
+    "description": "Web service for lipsum.org",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/traviskaufman/node-lipsum"
+    },
+    "bin": "bin/lipsum",
+    "preferGlobal": true,
+    "main": "lib/node-lipsum",
+    "dependencies": {
+        "coffee-script": "1.x.x",
+        "optimist": "0.3.x",
+        "lodash": "0.6.x",
+        "xml2js": "0.1.x"
+    }
+}
