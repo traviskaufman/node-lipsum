@@ -15,5 +15,8 @@
         "optimist": "0.3.x",
         "lodash": "0.6.x",
         "xml2js": "0.1.x"
+    },
+    "devDependencies": {
+        "jasmine-node": "1.0.x"
     }
 }
