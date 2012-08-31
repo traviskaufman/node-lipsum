@@ -1,10 +1,7 @@
 require "shelljs/global"
-fs = require "fs"
-path = require "path"
-{spawn, exec} = require "child_process"
 
 task "test", "run all tests for the module", ->
-  sh "node_modules/jasmine-node/bin/jasmine-node --color spec/*.spec.js"
+  sh "node_modules/jasmine-node/bin/jasmine-node --coffee --color spec"
   notice "Tests Passed!"
 
 # Taken from coffee-script/Cakefile
@@ -13,7 +10,7 @@ notice = (msg) ->
   console.log "#{stars}\n* #{msg} *\n#{stars}\n"
 
 sh = (cmd) ->
-  echo cmd
+  console.log cmd
   retCode = exec(cmd).code
   if retCode? and retCode isnt 0
     console.log "Error: #{cmd} failed with exit code #{retCode}"
