@@ -7,7 +7,7 @@ task "test", "run all tests for the module", ->
 task "compile", "compile all coffeescript into javascript", ->
   targetDistDir = "build"
   targetSourceDir = "lib"
-  sh "coffee -o #{targetDistDir}/ -c #{targetSourceDir}/*.coffee"
+  sh "coffee -b -o #{targetDistDir}/ -c #{targetSourceDir}/*.coffee"
   notice "All coffeescript has been compiled and placed in " +
          "#{__dirname}/#{targetDistDir}"
 
