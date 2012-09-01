@@ -7,7 +7,7 @@ task "test", "run all tests for the module", ->
 # Taken from coffee-script/Cakefile
 notice = (msg) ->
   stars = ("*" for _ in [1..msg.length+4]).join("")
-  console.log "#{stars}\n* #{msg} *\n#{stars}\n"
+  console.log "\n#{stars}\n* #{msg} *\n#{stars}\n"
 
 sh = (cmd) ->
   console.log cmd
