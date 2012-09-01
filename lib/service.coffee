@@ -9,16 +9,14 @@ url = require 'url'
 
 lipsumService =
 
-  get: (queryOpts, format, callback) =>
-    format = if format? then format else 'json'
-
+  get: (format, callback, queryOpts) =>
     urlopts =
       protocol: 'http:'
       hostname: 'lipsum.lipsum.com'
       pathname: "/feed/#{format}"
 
     if queryOpts?
-      url.query = queryOpts
+      urlopts.query = queryOpts
 
     endpoint = url.format urlopts
     response = null
@@ -27,8 +25,6 @@ lipsumService =
     ).on('error', (err) ->
       throw new Error(err.message)
     )
-    callback = if callback? then callback else (resp) ->
-        return resp
-    return callback(response)
+    callback(response)
 
 module.exports = lipsumService
