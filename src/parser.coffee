@@ -15,6 +15,8 @@ class LipsumParser extends events.EventEmitter
   feed: (payload) =>
     @parsedOutput = null
     @_payload = payload
+    # make chainable
+    return this
 
   parse: (successCallback, errCallback) =>
     if not @_payload?
