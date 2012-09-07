@@ -5,11 +5,16 @@ task "test", "run all tests for the module", ->
   notice "Tests Passed!"
 
 task "compile", "compile all coffeescript into javascript", ->
+  invoke "lint"
   targetDistDir = "lib"
   targetSourceDir = "src"
   sh "coffee -b -o #{targetDistDir}/ -c #{targetSourceDir}/*.coffee"
   notice "All coffeescript has been compiled and placed in " +
          "#{__dirname}/#{targetDistDir}"
+
+task "lint", "lint all coffeescript in the src/ dir", ->
+  sh "node_modules/coffeelint/bin/coffeelint -r src/"
+  notice "Coffeelint Passed!"
 
 # Taken from coffee-script/Cakefile
 notice = (msg) ->
