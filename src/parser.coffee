@@ -1,7 +1,7 @@
 ###
-  Parser for xml and json. Detects whether the file is XML or JSON and parses it accordingly. 
-  Parsing within the file provides the advantage of decoupling calls to the server with calls
-  to the parser, as it is able to be agnostic to the format received. It
+  Parser that detects whether input is XML or JSON and parses accordingly.
+  Parsing within the file provides the advantage of decoupling server calls with
+  calls to the parser, as it is able to be agnostic to the format received. It
   cannot, however, parse HTML (nor should it have to).
 ###
 XMLParser = require('xml2js').Parser
@@ -29,10 +29,22 @@ class LipsumParser extends events.EventEmitter
     @parsedOutput = @_attemptParseJSON @payload
 
     # If that didn't work than try parsing it as XML
+    xmlParseErrors = null
     if not @parsedOutput?
       xmlSuccCallback = (result) =>
         @parsedOutput = result
-      @_attemptParseXML(xmlSuccCallback, errCallback)
+      xmlErrCallback = (err) ->
+        xmlParseErrors = err
+      @_attemptParseXML(xmlSuccCallback, xmlErrCallback)
+
+    if @parsedOutput?
+      @_success(successCallback, @parsedOutput)
+    else
+      if xmlParseErrors?
+        @_error(errCallback, xmlParseErrors)
+      else
+        errMsg = "Could not parse #{@_payload}"
+        @_error(errCallback, errMsg)
 
   _attemptParseJSON: ->
     try
@@ -44,6 +56,15 @@ class LipsumParser extends events.EventEmitter
     @_xmlParser.parseString payload, (err, result) ->
       if err
         if onError? then onError(err)
-        return
         
       onSuccess(result)
+
+  _success: (succCallback, data) =>
+    succCallback(data)
+    @emit('success', data)
+
+  _error: (errCallback, data) =>
+    errCallback(data)
+    @emit('error', data)
+
+module?.exports = LipsumParser
