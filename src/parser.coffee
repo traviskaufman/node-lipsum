@@ -5,6 +5,7 @@
   cannot, however, parse HTML (nor should it have to).
 ###
 XMLParser = require('xml2js').Parser
+events = require('events')
 
 class LipsumParser extends events.EventEmitter
   constructor: (payload) ->
@@ -19,6 +20,9 @@ class LipsumParser extends events.EventEmitter
     return this
 
   parse: (successCallback, errCallback) =>
+    successCallback = successCallback or -> {}
+    errCallback = errCallback or -> {}
+
     if not @_payload?
       throw new ReferenceError("Nothing to parse.")
 
@@ -26,7 +30,7 @@ class LipsumParser extends events.EventEmitter
       return @parsedOutput
 
     # First attempt to parse the JSON string
-    @parsedOutput = @_attemptParseJSON @payload
+    @parsedOutput = @_attemptParseJSON()
 
     # If that didn't work than try parsing it as XML
     xmlParseErrors = null
@@ -46,14 +50,16 @@ class LipsumParser extends events.EventEmitter
         errMsg = "Could not parse #{@_payload}"
         @_error(errCallback, errMsg)
 
-  _attemptParseJSON: ->
+    return this
+
+  _attemptParseJSON: =>
     try
-      return JSON.parse payload
+      return JSON.parse @_payload
     catch SyntaxError
       return
 
   _attemptParseXML: (onSuccess, onError) =>
-    @_xmlParser.parseString payload, (err, result) ->
+    @_xmlParser.parseString @_payload, (err, result) ->
       if err
         if onError? then onError(err)
         
