@@ -1,6 +1,7 @@
 require "shelljs/global"
 
 task "test", "run all tests for the module", ->
+  invoke "compile"
   sh "node_modules/jasmine-node/bin/jasmine-node --coffee --color spec"
   notice "Tests Passed!"
 
