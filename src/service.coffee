@@ -21,10 +21,9 @@ lipsumService =
     endpoint = url.format urlopts
     response = null
     http.get(endpoint, (res) ->
-      response = res
+      callback(res)
     ).on('error', (err) ->
       throw new Error(err.message)
     )
-    callback(response)
 
-module.exports = lipsumService
+module?.exports = lipsumService
