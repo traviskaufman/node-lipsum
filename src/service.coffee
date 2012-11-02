@@ -10,15 +10,15 @@ url = require 'url'
 lipsumService =
 
   get: (format, callback, queryOpts) =>
-    @urlopts =
+    urlopts =
       protocol: 'http:'
       hostname: 'lipsum.lipsum.com'
       pathname: "/feed/#{format}"
 
     if queryOpts?
-      @urlopts.query = queryOpts
+      urlopts.query = queryOpts
 
-    endpoint = url.format @urlopts
+    endpoint = url.format urlopts
     req = http.request(endpoint, (res) ->
       payload = ""
       res.setEncoding('utf8')

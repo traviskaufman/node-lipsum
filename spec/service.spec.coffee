@@ -27,4 +27,6 @@ describe "The lipsum service", ->
   it "should be able to accept a callback that gets a payload", ->
     fooFunction = createSpy()
     lipsumService.get("xml", fooFunction)
-    expect(fooFunction).toHaveBeenCalled()
+    waitsFor(->
+      return fooFunction.callCount > 0
+    , "callback to be called", 1000)
