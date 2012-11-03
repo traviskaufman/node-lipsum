@@ -7,7 +7,7 @@
 http = require 'http'
 url = require 'url'
 
-lipsumService =
+class Service
 
   get: (format, callback, queryOpts) =>
     urlopts =
@@ -36,4 +36,4 @@ lipsumService =
 
     req.end()
 
-module?.exports = lipsumService
+module?.exports = Service
