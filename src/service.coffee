@@ -9,7 +9,7 @@ url = require 'url'
 
 class Service
 
-  get: (format, callback, queryOpts) =>
+  get: (format, callback, queryOpts) ->
     urlopts =
       protocol: 'http:'
       hostname: 'lipsum.lipsum.com'
