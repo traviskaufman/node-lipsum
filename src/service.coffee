@@ -24,7 +24,7 @@ class Service
       res.setEncoding('utf8')
 
       res.on('data', (chunk) ->
-        payload += chunk
+        payload += chunk.replace(/[\n|\t|\f|\v|\r]+/g, "\\n")
       )
 
       res.on('end', ->
