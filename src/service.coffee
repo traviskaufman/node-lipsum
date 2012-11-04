@@ -31,7 +31,7 @@ class Service
         callback(payload)
       )
     ).on('error', (err) ->
-      throw new Error(err.message)
+      throw new Error("Service Error: #{err.message}")
     )
 
     req.end()
