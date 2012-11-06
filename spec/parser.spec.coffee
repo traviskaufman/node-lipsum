@@ -5,7 +5,7 @@ describe "the lipsum parser", ->
   parser = null
   initEmptyParser = null
   payload = "<test>This is a test</test>"
-  jsonPayload = JSON.stringify({test: "This is a test"})
+  jsonPayload = '{"test": "This is a test"}'
   mock =
     succCallback: ->
       return true
