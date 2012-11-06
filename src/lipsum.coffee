@@ -23,19 +23,16 @@ class Lipsum extends events.EventEmitter
         opts[prop] = @defaults[prop] unless opts[prop]?
 
     @_service.get("json", @serviceCallback, opts)
-    @on('lipsum', (txt) -> callback(txt))
+    @once('lipsum', (txt) -> callback(txt))
 
-  parserCallbacks:
-    success: (result) =>
-      @emit('lipsum', result.lipsum)
+  parserSuccessCallBack: (result) =>
+    @emit('lipsum', result.feed.lipsum)
 
-    error: (err) ->
-      throw new Error("Parser Error: #{err.message}")
+  parserErrorCallBack: (err) ->
+    throw new Error("Parser Error: #{err.message}")
 
   serviceCallback: (text) =>
-    console.dir(text)
-    console.dir(JSON.parse(text))
-    @_parser.feed(text).parse(@parserCallbacks.success,
-                             @parserCallbacks.error)
+    @_parser.feed(text).parse(@parserSuccessCallBack,
+                             @parserErrorCallBack)
 
 module?.exports = Lipsum
