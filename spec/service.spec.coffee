@@ -3,7 +3,6 @@
 ###
 Service = require "../lib/service"
 http = require "http"
-_ = require "lodash"
 
 describe "The lipsum service", ->
   lipsumService = new Service()
