@@ -26,8 +26,6 @@ describe "The lipsum service", ->
       "http://lipsum.lipsum.com/feed/json?amount=2&what=paras")
 
   it "should be able to accept a callback that gets a payload", ->
-    fooFunction = createSpy()
-    lipsumService.get("xml", fooFunction)
-    waitsFor(->
-      return fooFunction.callCount > 0
-    , "callback to be called", 1000)
+    runs ->
+      fooFunction = createSpy()
+      lipsumService.get("xml", fooFunction)
