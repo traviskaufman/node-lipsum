@@ -6,7 +6,7 @@ Lipsum = require('./lipsum')
 
 exports.run = (args = []) ->
   exports._optparser = require('optimist')
-  argv = exports._optparser.parse(args).usage(
+  argv = exports._optparser.usage(
     'Lorem Ipsum Service for nodeJS.\n' +
     'Usage: $0 [-s, --start_with_lipsum] ' +
     '[-w, --what {paras, words, bytes}] ' +
@@ -39,7 +39,7 @@ exports.run = (args = []) ->
     is_valid_amt = args.amt.search(amt_format)
 
     is_valid_what && is_valid_amt
-  )
+  ).parse(args)
   
   if argv.help
     exports._optparser.help()
