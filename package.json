@@ -4,6 +4,9 @@
     "version": "1.0.0dev",
     "description": "Web service for lipsum.org",
     "keywords": ["Dummy Text", "Lorem Ipsum", "Lipsum", "Mock", "Fixtures"],
+    "engines": {
+      "node": ">= 0.8.0"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/traviskaufman/node-lipsum"
