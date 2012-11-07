@@ -10,7 +10,6 @@ class Lipsum extends events.EventEmitter
   constructor: ->
     @_parser = new Parser()
     @_service = new Service()
-    @text = null
 
   defaults:
     amount: 5
