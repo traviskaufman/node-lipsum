@@ -7,7 +7,7 @@ Summary
 node-lipsum is a NodeJS Module and Command-line Interface combo that provides a
 service API for [lipsum.org](http://lipsum.org), which you may or may not know
 as the go-to place to generate arbitrary dummy text whenever you need it.
-Node-lipsum can be right from the command line as a script by invoking
+Node-lipsum can be used right from the command line by invoking
 `node-lipsum` (assuming you've installed it globally) or as a node module. When
 used as a node module, you can also get access to it's `service` and `parser`
 sub-modules, which can provide fine-grain access to lipsum.org's service.
@@ -15,8 +15,7 @@ sub-modules, which can provide fine-grain access to lipsum.org's service.
 Installation
 ------------
 ```sh
-    $ npm install [-g] node-lipsum # note -g is preferred if you want to use
-    the CLI
+$ npm install [-g] node-lipsum # note -g is preferred if you want to use the CLI
 ```
 
 Usage
@@ -32,7 +31,7 @@ node-lipsum globally, simply run
 
     $ node-lipsum
 
-This will return you 5 paragraphs of latin dummy text.
+This will return you 5 paragraphs of Latin dummy text.
 
 ####CLI Options
 node-lipsum pretty much mirrors the API that's used on the site itself
@@ -91,6 +90,39 @@ lipsum.getText (text) ->
       console.log "Wrote #{text.length} characters!"
   , lipsumOpts
 ```
+
+Development
+-----------
+###Installation
+```sh
+$ git clone https://github.com/traviskaufman/node-lipsum.git
+$ cd node-lipsum/
+$ npm install
+```
+
+###Linting the code
+```sh
+$ cake lint
+```
+
+###Compiling
+```sh
+$ cake compile
+```
+
+###Testing
+```sh
+$ cake test
+```
+or
+```sh
+$ npm test
+```
+They do the same thing
+
+Issues
+------
+Please report them here!
 
 License: LGPL
 -------------
