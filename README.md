@@ -46,8 +46,26 @@ node-lipsum globally, simply run
 This will return you 5 paragraphs of Latin dummy text.
 
 ####CLI Options
-node-lipsum pretty much mirrors the API that's used on the site itself
+```sh
+usage: node-lipsum [-h] [-v] [-s] [-w {paras,words,bytes}] [-a AMOUNT]
 
+The CLI for the NodeJS Lorem Ipsum Service
+
+Optional arguments:
+  -h, --help            Show this help message and exit.
+  -v, --version         Show program's version number and exit.
+  -s, --start-with-lipsum
+                        Whether or not the text should start with "Lorem 
+                        Ipsum dolor sit amet...".
+  -w {paras,words,bytes}, --what {paras,words,bytes}
+                        The type of each text structure that will be returned.
+                         Choose from "paras" (paragraphs), "words", or "bytes"
+  -a AMOUNT, --amount AMOUNT
+                        The number of text structures that will be returned. 
+                        Defaults to 5.
+```
+
+####Some Examples
 ```sh
 # get 1 paragraph of text
 $ node-lipsum -a 1
@@ -61,6 +79,7 @@ $ node-lipsum --start-with-lipsum --what words --amount 25
 # print a nice help message
 $ node-lipsum -h  # or --help
 ```
+
 ###The NodeJS Module
 Inside your .js file:
 
@@ -102,6 +121,11 @@ lipsum.getText (text) ->
       console.log "Wrote #{text.length} characters!"
   , lipsumOpts
 ```
+
+Full Dox
+--------
+Can be found [here](http://htmlpreview.github.com/?https://github.com/traviskaufman/node-lipsum/blob/master/docs/index.html)
+or within the source code.
 
 Development
 -----------
