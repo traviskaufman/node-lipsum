@@ -12,6 +12,18 @@ Node-lipsum can be used right from the command line by invoking
 used as a node module, you can also get access to it's `service` and `parser`
 sub-modules, which can provide fine-grain access to lipsum.org's service.
 
+Use Cases
+---------
+You can use node-lipsum when you need:
+
+* Dummy Text for website mocks
+
+* Fixtures for unit/functional tests
+
+* Arbitary text that's meaningless
+
+* A lame excuse to practice ancient Latin
+
 Installation
 ------------
 ```sh
