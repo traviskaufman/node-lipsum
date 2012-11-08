@@ -17,6 +17,10 @@ task "lint", "lint all coffeescript in the src/ dir", ->
   sh "node_modules/coffeelint/bin/coffeelint -r src/"
   notice "Coffeelint Passed!"
 
+task "doc", "generate documentation for all modules in src/", ->
+  sh "node_modules/coffeedoc/bin/coffeedoc src/"
+  notice "Documentation Generated!"
+
 # Taken from coffee-script/Cakefile
 notice = (msg) ->
   stars = ("*" for _ in [1..msg.length+4]).join("")

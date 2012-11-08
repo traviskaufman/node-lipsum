@@ -1,5 +1,8 @@
 ###
 # Lipsum Command-line Interface
+
+This module provides a CLI wrapper for the main module, allowing it to be
+easily used via anyone's login shell.
 ###
 
 Lipsum = require('./lipsum')
@@ -37,6 +40,12 @@ exports._optparser.addArgument(
 )
 
 exports.run = (args = []) ->
+  ###
+  This will run the CLI
+
+  args: {Array} The arguments that would be passed to the CLI.
+        This is usually something like `process.argv.slice(2)`
+  ###
   argv = exports._optparser.parseArgs(args)
   exports._run(argv)
 

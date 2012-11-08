@@ -22,7 +22,8 @@
     "devDependencies": {
         "jasmine-node": "1.0.x",
         "shelljs": "0.0.x",
-        "coffeelint": "0.4.x"
+        "coffeelint": "0.4.x",
+        "coffeedoc": "0.2.x"
     },
     "scripts": {
       "test": "cake test"
