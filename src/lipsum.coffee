@@ -8,8 +8,8 @@ events = require('events')
 
 class Lipsum extends events.EventEmitter
   constructor: ->
-    @_parser = new Parser()
-    @_service = new Service()
+    @parser = new Parser()
+    @service = new Service()
 
   defaults:
     amount: 5
@@ -21,7 +21,7 @@ class Lipsum extends events.EventEmitter
       for prop in @defaults
         opts[prop] = @defaults[prop] unless opts[prop]?
 
-    @_service.get("json", @serviceCallback, opts)
+    @service.get("json", @serviceCallback, opts)
     @once('lipsum', (txt) -> callback(txt))
 
   parserSuccessCallBack: (result) =>
@@ -31,7 +31,7 @@ class Lipsum extends events.EventEmitter
     throw new Error("Parser Error: #{err.message}")
 
   serviceCallback: (text) =>
-    @_parser.feed(text).parse(@parserSuccessCallBack,
+    @parser.feed(text).parse(@parserSuccessCallBack,
                              @parserErrorCallBack)
 
 module?.exports = Lipsum
