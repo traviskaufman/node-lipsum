@@ -1,16 +1,19 @@
-node-lipsum: [lipsum.org](http://lipsum.org) Service/CLI for NodeJS
+node-lipsum: [lipsum.com](http://lipsum.com) Service/CLI for NodeJS
 ===================================================================
 [![Build Status](https://secure.travis-ci.org/traviskaufman/node-lipsum.png?branch=master)](https://travis-ci.org/traviskaufman/node-lipsum)
 
 Summary
 -------
 node-lipsum is a NodeJS Module and Command-line Interface combo that provides a
-service API for [lipsum.org](http://lipsum.org), which you may or may not know
+service API for [lipsum.com](http://lipsum.com), which you may or may not know
 as the go-to place to generate arbitrary dummy text whenever you need it.
 Node-lipsum can be used right from the command line by invoking
 `node-lipsum` (assuming you've installed it globally) or as a node module. When
 used as a node module, you can also get access to it's `service` and `parser`
-sub-modules, which can provide fine-grain access to lipsum.org's service.
+sub-modules, which can provide fine-grain access to lipsum.com's service.
+
+<i>Lorem Ipsum taken from [http://www.lipsum.com](http://www.lipsum.com)
+courtesy of James Wilson.</i>
 
 Use Cases
 ---------

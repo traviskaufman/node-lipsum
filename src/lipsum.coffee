@@ -3,7 +3,7 @@
 
 Main entry point for the node-lipsum module. Provides wrappers for
 the Parser and Service classes as well as an easy method to get text
-from the lipsum.org service.
+from the lipsum.com service.
 ###
 
 Service = require('./service')
@@ -18,7 +18,7 @@ class Lipsum extends events.EventEmitter
 
   defaults:
     ###
-    These parameters will be passed by default to lipsum.org in the query
+    These parameters will be passed by default to lipsum.com in the query
     ###
     amount: 5
     what: 'paras'
@@ -26,13 +26,13 @@ class Lipsum extends events.EventEmitter
 
   getText: (callback, opts) =>
     ###
-    Retrieves dummy text from lipsum.org
+    Retrieves dummy text from lipsum.com
 
     callback: {Function} Should take one parameter for the text
-              returned from lipsum.org. Called on successful retrieval
+              returned from lipsum.com. Called on successful retrieval
               of said text.
 
-    opts: {Object} Options to pass onto the lipsum.org query. These will
+    opts: {Object} Options to pass onto the lipsum.com query. These will
           be transformed into url query params, so if you pass in something
           like {start: 'yes', what: 'bytes'} that will become
           "?start=yes&what=bytes"
@@ -54,8 +54,8 @@ class Lipsum extends events.EventEmitter
 
   serviceCallback: (text) =>
     ###
-    Called when the lipsum.org service succesfully retrieves
-    text from the lipsum.org service.
+    Called when the lipsum.com service succesfully retrieves
+    text from the lipsum.com service.
     ###
     @parser.feed(text).parse(@parserSuccessCallBack,
                              @parserErrorCallBack)

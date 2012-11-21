@@ -1,7 +1,7 @@
 ###
-  # Web Service for lipsum.org
+  # Web Service for lipsum.com
 
-  Provides the low-level interface to the lipsum.org
+  Provides the low-level interface to the lipsum.com
   service.
 ###
 
