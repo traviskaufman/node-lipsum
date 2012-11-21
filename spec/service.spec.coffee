@@ -16,13 +16,13 @@ describe "The lipsum service", ->
     stubOutHTTP()
     lipsumService.get(defaultFormat, callback)
     expect(http.request.mostRecentCall.args[0]).toEqual(
-      "http://lipsum.lipsum.com/feed/json")
+      "http://lipsum.com/feed/json")
 
   it "should be able to accept different query params", ->
     stubOutHTTP()
     lipsumService.get(defaultFormat, callback, {amount: 2, what: "paras"})
     expect(http.request.mostRecentCall.args[0]).toEqual(
-      "http://lipsum.lipsum.com/feed/json?amount=2&what=paras")
+      "http://lipsum.com/feed/json?amount=2&what=paras")
 
   it "should be able to accept a callback that gets a payload", ->
     runs ->

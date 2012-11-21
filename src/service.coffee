@@ -23,7 +23,7 @@ class Service
     ###
     urlopts =
       protocol: 'http:'
-      hostname: 'lipsum.lipsum.com'
+      hostname: 'lipsum.com'
       pathname: "/feed/#{format}"
 
     if queryOpts?
