@@ -90,7 +90,7 @@ Inside your .js file:
 var Lipsum = require('node-lipsum');
 var fs = require('fs');
 var lipsum = new Lipsum();
-lipsumOpts = {
+var lipsumOpts = {
   start: 'yes',
   what: 'bytes',
   amount: 80
