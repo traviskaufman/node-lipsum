@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var ArgumentParser = require('argparse').ArgumentParser;
+
+var pkgInfo = require('../package.json');
+var CLI = require('../lib/cli').CLI;
+
+new CLI(new ArgumentParser({
+  version: pkgInfo.version,
+  description: pkgInfo.description
+})).run(process.argv.slice(2));

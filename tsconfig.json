@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "lib",
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": true
+  },
+  "filesGlob": [
+    "typings/main.d.ts",
+    "managed_typings/main.d.ts",
+    "src/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "files": [
+    "typings/main.d.ts",
+    "src/cli.ts",
+    "src/lipsum.ts",
+    "src/parser.ts",
+    "src/service.ts"
+  ]
+}

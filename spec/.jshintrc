@@ -1,0 +1,13 @@
+{
+  "esnext": true,
+  "node": true,
+  "latedef": "nofunc",
+  "validthis": true,
+  "unused": true,
+  "undef": true,
+  "mocha": true,
+  "predef": [
+    "sinon",
+    "expect"
+  ]
+}
