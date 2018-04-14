@@ -10,8 +10,6 @@
     "noImplicitAny": true
   },
   "filesGlob": [
-    "typings/main.d.ts",
-    "managed_typings/main.d.ts",
     "src/*.ts",
     "!./node_modules/**/*.ts"
   ],
@@ -19,7 +17,6 @@
     "rewriteTsconfig": true
   },
   "files": [
-    "typings/main.d.ts",
     "src/cli.ts",
     "src/lipsum.ts",
     "src/parser.ts",
