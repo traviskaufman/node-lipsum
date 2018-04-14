@@ -45,7 +45,6 @@
   "scripts": {
     "ci": "npm run lint && npm run test",
     "lint": "tslint src/*.ts && jshint spec",
-    "postinstall": "typings install",
     "test": "mocha --compilers js:babel-register --require spec/boot spec/*.spec.js"
   }
 }
