@@ -38,13 +38,13 @@ export class Parser extends EventEmitter {
         }
       }
 
-      return this.xmlParser.parseString(
-          payload, (err: Error, result: Object) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(result);
-      });
+      // return this.xmlParser.parseString(
+      //     payload, (err: Error, result: Object) => {
+      //   if (err) {
+      //     return reject(err);
+      //   }
+      //   resolve(result);
+      // });
     });
   }
 
