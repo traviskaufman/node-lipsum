@@ -40,9 +40,10 @@ export class CLI {
     });
   }
 
-  run(args: string[] = []) {
+  run(args: string[] = [],
+      callback : (payload : string ) => void ) {
     const argv = this.optparser.parseArgs(args);
-    this.lipsum.getText(argv).then(text => console.log(text)).catch(err => {
+    this.lipsum.getText(argv).then(callback).catch(err => {
       console.error(err);
     });
   }

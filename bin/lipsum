@@ -10,4 +10,4 @@ var CLI = require('../lib/cli').CLI;
 new CLI(new ArgumentParser({
   version: pkgInfo.version,
   description: pkgInfo.description
-})).run(process.argv.slice(2));
+})).run(process.argv.slice(2), function(text){console.log(text);});

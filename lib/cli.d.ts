@@ -10,5 +10,5 @@ export declare class CLI {
     private optparser;
     private lipsum;
     constructor(optparser?: ArgumentParser, lipsum?: Lipsum);
-    run(args?: string[]): void;
+    run(args: string[], callback: (payload: string) => void): void;
 }
