@@ -40,7 +40,7 @@ describe('Lipsum', function() {
 
     it('honors options', function() {
       const amount = 6, what = 'bytes';
-      this.lipsum.getText({amount, what, startWithLipsum: true});
+      this.lipsum.getText({amount, what, startWithLoremIpsum: true});
       expect(this.service.get).to.have.been.calledWith(Format.JSON, {
         amount, what, start: 'yes'
       });
