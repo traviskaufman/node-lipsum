@@ -74,14 +74,14 @@ describe('Service', function() {
 
     describe('when the request fails', function() {
       beforeEach(function() {
-        this.httpClient.get.reset();
+        this.httpClient.get.resetHistory();
         this.error = new Error('ruh roh');
       });
 
       it('fails with the emitted error', function() {
         const p = this.service.get(Format.JSON);
         this.request.emit('error', this.error);
-        return expect(p).to.be.rejectedWith(this.error);
+        expect(p).to.be.rejectedWith(this.error);
       });
     });
   });
