@@ -14,7 +14,7 @@ export interface GetTextOptions {
   // strings here rather than enums. Consider `paras` vs
   // something like `TextType[TextType.Paragraph]`
   what?: string;
-  startWithLipsum?: boolean;
+  startWithLoremIpsum?: boolean;
 }
 
 /**
@@ -32,13 +32,13 @@ export class Lipsum {
     options = objectAssign({
       amount: 5,
       what: 'paras',
-      startWithLipsum: false
+      startWithLoremIpsum: false
     }, options);
 
     const requestOpts = {
       amount: options.amount,
       what: options.what,
-      start: options.startWithLipsum ? 'yes' : 'no'
+      start: options.startWithLoremIpsum ? 'yes' : 'no'
     };
     return this.service.get(Format.JSON, requestOpts).then(data => {
       return this.parser.parse<LipsumResponse>(Format.JSON, data);
