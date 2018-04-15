@@ -23,25 +23,36 @@ describe('cli', function() {
         this.cli.run(undefined, ()=>{});
         expect(this.lipsum.getText).to.have.been.calledWith({ amount: 5, startWithLoremIpsum: false, what: "paras" });
     });
+
+    it('correctly parses arguments',function(){
+        this.cli.run(['--amount', 10, '--what', 'words', '-s'],()=>{});
+        expect(this.lipsum.getText).to.have.been.calledWith({ amount: 10, startWithLoremIpsum: true, what: "words" });
+    })
   });
 
 
-describe("help",function(){
-    beforeEach(function(){
+
+
+// describe("help",function(){
+//     beforeEach(function(){
       
-      this.optparse = new ArgumentParser();
-    })
+//       this.cli = new CLI();
+//       this.helpStub = sinon.stub(this.cli.optparser,"printHelp").callFake(()=>{});
+//     })
 
-    it("displays a help message when passed -h",function(){
-      this.cli.run("-h",undefined);
-    });
-    it("displays a help message when passed --help",function(){
-      this.cli.run("--help",undefined);
-    })
+//     it("displays a help message when passed -h",function(){
+//       this.cli.run("-h",undefined);
+//       expect(this.helpStub).to.have.been.called;
+
+//     });
+//     it("displays a help message when passed --help",function(){
+//       this.cli.run("--help",undefined);
+//       expect(this.helpStub).to.have.been.called;
+//     })
 
 
 
-  });
+//   });
 
 });
 
