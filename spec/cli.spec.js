@@ -4,26 +4,45 @@ import {CLI} from '../lib/cli';
 
 describe('cli', function() {
   beforeEach(function() {
-    this.optparser = sinon.createStubInstance(ArgumentParser);
     this.lipsum = sinon.stub({
       getText: () => {}
     });
-    this.cli = new CLI(this.optparser, this.lipsum);
+    
+
   });
 
   describe('#run', function() {
     beforeEach(function() {
-      sinon.spy(console, 'log');
+      this.cli = new CLI(undefined, this.lipsum);
+      this.fakePromise = new Promise(function(res,rej){res({});});
+      this.lipsum.getText.returns(this.fakePromise);
     });
 
-    afterEach(function() {
-      console.log.restore();
-    });
-
+    
     it('runs with default parameters when none are given', function() {
-
+        this.cli.run(undefined, ()=>{});
+        expect(this.lipsum.getText).to.have.been.calledWith({ amount: 5, startWithLoremIpsum: false, what: "paras" });
     });
   });
+
+
+describe("help",function(){
+    beforeEach(function(){
+      
+      this.optparse = new ArgumentParser();
+    })
+
+    it("displays a help message when passed -h",function(){
+      this.cli.run("-h",undefined);
+    });
+    it("displays a help message when passed --help",function(){
+      this.cli.run("--help",undefined);
+    })
+
+
+
+  });
+
 });
 
 // # cli = require('../lib/cli')
