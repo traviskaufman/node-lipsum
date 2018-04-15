@@ -44,10 +44,10 @@ export class Service {
         res.on('data', (chunk: string) => {
           payload += chunk.replace(/[\n|\t|\f|\v|\r]+/g, '\\n');
         });
-        res.on('error', reject);
+        res.on('error', function(e:Error){reject(e);});
         res.on('end', () => resolve(payload));
       });
-      req.on('error', reject);
+      req.on('error', function(e:Error){reject(e);});
     });
   }
 }
