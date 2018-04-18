@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Promise } from 'es6-promise';
 import { EventEmitter } from 'events';
 import { Parser as XMLParser } from 'xml2js';

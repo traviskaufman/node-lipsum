@@ -22,21 +22,21 @@ describe('Service', function() {
     it('requests a lipsum JSON feed when given JSON format', function() {
       this.service.get(Format.JSON);
       expect(this.httpClient.get).to.have.been.calledWith(
-        'http://lipsum.com/feed/json'
+        'https://lipsum.com/feed/json'
       );
     });
 
     it('requests a lipsum XML feed when given XML format', function() {
       this.service.get(Format.XML);
       expect(this.httpClient.get).to.have.been.calledWith(
-        'http://lipsum.com/feed/xml'
+        'https://lipsum.com/feed/xml'
       );
     });
 
     it('allows for custom query parameters to be passed in', function() {
       this.service.get(Format.JSON, { foo: 'bar', baz: 'bing' });
       expect(this.httpClient.get).to.have.been.calledWith(
-        'http://lipsum.com/feed/json?foo=bar&baz=bing'
+        'https://lipsum.com/feed/json?foo=bar&baz=bing'
       );
     });
 
@@ -74,14 +74,14 @@ describe('Service', function() {
 
     describe('when the request fails', function() {
       beforeEach(function() {
-        this.httpClient.get.reset();
+        this.httpClient.get.resetHistory();
         this.error = new Error('ruh roh');
       });
 
       it('fails with the emitted error', function() {
         const p = this.service.get(Format.JSON);
         this.request.emit('error', this.error);
-        return expect(p).to.be.rejectedWith(this.error);
+        expect(p).to.be.rejectedWith(this.error);
       });
     });
   });

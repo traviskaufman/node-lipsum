@@ -7,7 +7,7 @@ import { Promise } from 'es6-promise';
 export interface GetTextOptions {
     amount?: number;
     what?: string;
-    startWithLipsum?: boolean;
+    startWithLoremIpsum?: boolean;
 }
 /**
  * Gets you dummy text!

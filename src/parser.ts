@@ -38,13 +38,17 @@ export class Parser extends EventEmitter {
         }
       }
 
-      return this.xmlParser.parseString(
-          payload, (err: Error, result: Object) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(result);
-      });
+      else if (format === Format.XML)
+      {
+        return this.xmlParser.parseString(
+          payload, (err: Error, result: any) => {
+          if (err) {
+            return reject(err);
+          }
+          resolve(result);
+          });
+         }
+     
     });
   }
 
@@ -59,6 +63,6 @@ export class Parser extends EventEmitter {
    * Convenience function for parsing XML.
    */
   parseXML<T>(payload: string): Promise<T> {
-    return this.parse(Format.JSON, payload);
+    return this.parse(Format.XML, payload);
   }
 }

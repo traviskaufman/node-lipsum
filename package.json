@@ -29,21 +29,22 @@
     "xml2js": "^0.4.15"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.4.3",
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.2.0",
+    "@types/argparse": "^1.0.33",
+    "@types/node": "^9.6.5",
+    "@types/object-assign": "^4.0.30",
+    "@types/xml2js": "^0.4.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.0",
     "memorystream": "^0.3.1",
-    "mocha": "^2.3.4",
-    "shelljs": "0.0.x",
-    "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0",
-    "typings": "^0.6.1"
+    "mocha": "^5.1.0",
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.0.0"
   },
   "scripts": {
     "ci": "npm run lint && npm run test",
     "lint": "tslint src/*.ts && jshint spec",
-    "postinstall": "typings install",
-    "test": "mocha --compilers js:babel-register --require spec/boot spec/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register --require spec/boot spec/*.spec.js"
   }
 }

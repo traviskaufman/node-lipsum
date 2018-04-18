@@ -1,15 +1,16 @@
+/// <reference types="node" />
 import * as http from 'http';
 import { Promise } from 'es6-promise';
 import { Format } from './parser';
-export interface HttpClient {
+export interface HttpsClient {
     get(options: any, callback?: (res: http.IncomingMessage) => void): http.ClientRequest;
 }
 /**
  * Provides a transport layer for the lipsum.com web service.
  */
 export declare class Service {
-    private httpClient;
-    constructor(httpClient?: HttpClient);
+    private httpsClient;
+    constructor(httpsClient?: HttpsClient);
     /**
      * Retrieves the lipsum text.
      * @param format

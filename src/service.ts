@@ -1,11 +1,12 @@
 import * as http from 'http';
+import * as https from 'https';
 import * as url from 'url';
 
 import {Promise} from 'es6-promise';
 
 import {Format} from './parser';
 
-export interface HttpClient {
+export interface HttpsClient {
   get(options: any, callback?: (res: http.IncomingMessage) => void): http.ClientRequest;
 }
 
@@ -13,7 +14,7 @@ export interface HttpClient {
  * Provides a transport layer for the lipsum.com web service.
  */
 export class Service {
-  constructor(private httpClient: HttpClient = http) {}
+  constructor(private httpsClient: HttpsClient = https) {}
 
   /**
    * Retrieves the lipsum text.
@@ -24,7 +25,7 @@ export class Service {
    */
   get(format: Format, queryOpts?: any): Promise<string> {
     const urlopts: any = {
-      protocol: 'http:',
+      protocol: 'https:',
       hostname: 'lipsum.com',
       pathname: `/feed/${ format === Format.JSON ? 'json' : 'xml' }`
     };
@@ -36,17 +37,17 @@ export class Service {
     const endpoint = url.format(urlopts);
 
     return new Promise((resolve, reject) => {
-      const req = this.httpClient.get(endpoint, (res) => {
+      const req = this.httpsClient.get(endpoint, (res) => {
         let payload = '';
         res.setEncoding('utf8');
 
         res.on('data', (chunk: string) => {
           payload += chunk.replace(/[\n|\t|\f|\v|\r]+/g, '\\n');
         });
-        res.on('error', reject);
+        res.on('error', function(e:Error){reject(e);});
         res.on('end', () => resolve(payload));
       });
-      req.on('error', reject);
+      req.on('error', function(e:Error){reject(e);});
     });
   }
 }
