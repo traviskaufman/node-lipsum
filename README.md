@@ -83,7 +83,7 @@ $ node-lipsum --start-with-lipsum --what words --amount 25
 $ node-lipsum -h  # or --help
 ```
 
-#### The NodeJS Module
+### The NodeJS Module
 Inside your .js file:
 
 ```javascript
