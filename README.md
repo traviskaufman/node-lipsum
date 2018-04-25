@@ -38,8 +38,8 @@ Usage
 There are 2 different ways to use node-lipsum: via the command line, and as a
 node module.
 
-###The Command-Line Interface
-####Basic Dummy Text Retrieval
+### The Command-Line Interface
+#### Basic Dummy Text Retrieval
 As node-lipsum was built with a specific use case in mind, it is available out
 of the box via the `node-lipsum` script. Provided you have installed
 node-lipsum globally, simply run
@@ -48,7 +48,7 @@ node-lipsum globally, simply run
 
 This will return you 5 paragraphs of Latin dummy text.
 
-####CLI Options
+#### CLI Options
 ```sh
 usage: node-lipsum [-h] [-v] [-s] [-w {paras,words,bytes}] [-a AMOUNT]
 
@@ -68,7 +68,7 @@ Optional arguments:
                         Defaults to 5.
 ```
 
-####Some Examples
+#### Some Examples
 ```sh
 # get 1 paragraph of text
 $ node-lipsum -a 1
@@ -83,7 +83,7 @@ $ node-lipsum --start-with-lipsum --what words --amount 25
 $ node-lipsum -h  # or --help
 ```
 
-###The NodeJS Module
+#### The NodeJS Module
 Inside your .js file:
 
 ```javascript
@@ -125,31 +125,31 @@ lipsum.getText (text) ->
   , lipsumOpts
 ```
 
-Full Dox
+Full Docs
 --------
 Can be found [here](http://htmlpreview.github.com/?https://github.com/traviskaufman/node-lipsum/blob/master/docs/index.html)
 or within the source code.
 
 Development
 -----------
-###Installation
+#### Installation
 ```sh
 $ git clone https://github.com/traviskaufman/node-lipsum.git
 $ cd node-lipsum/
 $ npm install
 ```
 
-###Linting the code
+#### Linting the code
 ```sh
 $ cake lint
 ```
 
-###Compiling
+#### Compiling
 ```sh
 $ cake compile
 ```
 
-###Testing
+#### Testing
 ```sh
 $ cake test
 ```
