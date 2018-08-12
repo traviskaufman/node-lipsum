@@ -3,9 +3,15 @@
     "name": "node-lipsum",
     "version": "1.0.1",
     "description": "Web service for lipsum.com",
-    "keywords": ["Dummy Text", "Lorem Ipsum", "Lipsum", "Mock", "Fixtures"],
+    "keywords": [
+        "Dummy Text",
+        "Lorem Ipsum",
+        "Lipsum",
+        "Mock",
+        "Fixtures"
+    ],
     "engines": {
-      "node": ">= 0.8.0"
+        "node": ">= 0.8.0"
     },
     "repository": {
         "type": "git",
@@ -15,7 +21,7 @@
     "preferGlobal": true,
     "main": "./lib/lipsum",
     "dependencies": {
-        "coffee-script": "1.x.x",
+        "coffeescript": "1.x.x",
         "argparse": "0.1.x",
         "xml2js": "0.1.x"
     },
@@ -26,6 +32,6 @@
         "coffeedoc": "0.2.x"
     },
     "scripts": {
-      "test": "cake test"
+        "test": "cake test"
     }
 }
