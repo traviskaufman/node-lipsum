@@ -1,7 +1,7 @@
 {
     "author": "Travis Kaufman <travis.kaufman@gmail.com>",
     "name": "node-lipsum",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Web service for lipsum.com",
     "keywords": [
         "Dummy Text",
