@@ -5,7 +5,7 @@
   service.
 ###
 
-http = require 'http'
+https = require 'https'
 url = require 'url'
 
 class Service
@@ -22,7 +22,7 @@ class Service
     queryOpts: {Object} options to attach to the query portion of the url.
     ###
     urlopts =
-      protocol: 'http:'
+      protocol: 'https:'
       hostname: 'lipsum.com'
       pathname: "/feed/#{format}"
 
@@ -30,7 +30,7 @@ class Service
       urlopts.query = queryOpts
 
     endpoint = url.format urlopts
-    req = http.request(endpoint, (res) ->
+    req = https.request(endpoint, (res) ->
       payload = ""
       res.setEncoding('utf8')
 
