@@ -9,7 +9,7 @@ Lipsum = require('./lipsum')
 ArgumentParser = require('argparse').ArgumentParser
 
 exports._optparser = new ArgumentParser(
-  version: '1.0.0'
+  version: '1.0.2'
   description: 'The CLI for the NodeJS Lorem Ipsum Service'
 )
 

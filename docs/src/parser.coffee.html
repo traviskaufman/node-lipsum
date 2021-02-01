@@ -28,12 +28,11 @@
     <div class="content column">
       
       <div id="module-docstring">
-        <h1>Lipsum Parser</h1>
+        <h1 id="lipsum-parser">Lipsum Parser</h1>
 <p>Detects whether input is XML or JSON and parses accordingly.
 Parsing within the file provides the advantage of decoupling server calls with
 calls to the parser, as it is able to be agnostic to the format received. It
-cannot, however, parse HTML (nor should it have to).
-</p>
+cannot, however, parse HTML (nor should it have to).</p>
 
       </div>
       
@@ -67,25 +66,19 @@ cannot, however, parse HTML (nor should it have to).
                 <div class="method">
                   <h4>feed(payload)</h4>
                   <p>Given a payload (which should be XML or JSON), it stores
-this and then returns itself for chainability.
-</p>
+this and then returns itself for chainability.</p>
 
                 </div>
                 
                 <div class="method">
                   <h4>parse(successCallback, errCallback)</h4>
-                  <p>Parses the payload it was Given
-
-</p>
+                  <p>Parses the payload it was Given</p>
 <p>successCallback: {Function} called on successful parse.
                  Takes one parameter that contains the parsed
-                 output.
-
-</p>
+                 output.</p>
 <p>errCallback: {Function} called on parsing error from XML parser.
              Note that this will be called even if the payload is JSON,
-             since JSON is attempted to be parsed first.
-</p>
+             since JSON is attempted to be parsed first.</p>
 
                 </div>
                 
