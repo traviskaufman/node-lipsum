@@ -19,23 +19,23 @@
     "node-lipsum": "./dist/cli.js"
   },
   "preferGlobal": true,
-  "main": "./lib/lipsum",
+  "main": "./dist/lipsum.js",
+  "files": [
+    "dist",
+    "LICENSE.txt"
+  ],
   "dependencies": {
-    "argparse": "0.1.x",
-    "coffee-script": "1.x.x",
+    "commander": "^14.0.2",
     "nock": "^14.0.10",
-    "xml2js": "0.1.x"
+    "xml2js": "^0.6.2",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
     "@types/xml2js": "^0.4.14",
-    "coffeedoc": "0.2.x",
-    "coffeelint": "0.4.x",
     "husky": "^9.1.7",
-    "jasmine-node": "1.0.x",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
-    "shelljs": "0.0.x",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "vitest": "^4.0.8"
@@ -44,8 +44,8 @@
     "clean": "rm -rf dist",
     "pretest": "npm run clean && tsc --sourceMap false --inlineSourceMap",
     "test": "vitest run",
-    "dev": "tsx src/index.ts",
-    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "build": "tsc && chmod +x ./dist/cli.js",
     "prepublishOnly": "npm run clean && npm run build",
     "prepare": "husky"
   },

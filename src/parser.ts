@@ -32,7 +32,10 @@ export default class Parser {
 
     // Try to parse as XML
     return new Promise((resolve, reject) => {
-      new XMLParser().parseString(payload, (err, result) => {
+      new XMLParser({
+        explicitArray: false,
+        explicitRoot: false,
+      }).parseString(payload, (err, result) => {
         if (err) {
           reject(err);
         } else {
