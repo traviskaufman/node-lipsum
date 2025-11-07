@@ -12,7 +12,7 @@ export default class Service {
    * @param queryOpts - options to attach to the query portion of the url
    * @returns Promise that resolves with the response data
    */
-  get(format: string, queryOpts?: QueryOptions): Promise<string>;
+  get(format: "json" | "xml", queryOpts?: QueryOptions): Promise<string>;
 }
 export {};
 //# sourceMappingURL=service.d.ts.map
