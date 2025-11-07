@@ -2,7 +2,7 @@
   "author": "Travis Kaufman <travis.kaufman@gmail.com>",
   "name": "node-lipsum",
   "type": "module",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Web service for lipsum.com",
   "keywords": [
     "Dummy Text",
